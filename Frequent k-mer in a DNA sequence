@@ -1,0 +1,30 @@
+def PatternCount(text,pattern):
+	k=len(pattern)
+	iteration = len(text) - k + 1
+	count = 0
+
+	for i in range(iteration):	
+		if text[i:i+k] == pattern:
+			count=count + 1
+	return count
+
+f=open('dataset_2_6.txt','r')
+text=f.read()
+k=12
+countlist=[]
+freqpat=[]
+iteration = len(text) - k + 1
+for i in range(iteration):
+	pat = text[i:i+k]
+	countlist.append(PatternCount(text,pat))
+#print countlist
+maxval=max(countlist)
+print maxval
+
+for i in range(iteration):
+	if countlist[i]==maxval:
+		#print countlist[i]
+		#print text[i:i+k]
+		freqpat.append(text[i:i+k])	
+print list(set (freqpat))
+
