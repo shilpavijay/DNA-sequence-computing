@@ -1,0 +1,12 @@
+f=open('vibrio_cholerae.txt','r')
+text=f.read()
+pattern="CTTGATCAT"
+k=len(pattern)
+s=[]
+str1=""
+iteration = len(text) - k + 1
+
+for i in range(iteration):	
+	if text[i:i+k] == pattern:
+		str1 = str1 + " " + str(i)
+print str1
